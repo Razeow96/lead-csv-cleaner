@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lead CSV Cleaner — clean, dedupe and score your leads in the browser</title>
+  <meta name="description" content="Free lead CSV cleaner: dedupe, validate and score your lead list. 100% client-side — your data never leaves your browser." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">Lead CSV Cleaner</div>
+      <div class="privacy-badge" title="All processing happens in this tab. Nothing is uploaded.">
+        100% client-side &mdash; your CSV never leaves your browser
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Upload a lead CSV. Get back a cleaned, deduped, scored list.</h1>
+      <p>
+        Trims and normalizes every field, removes duplicates, flags invalid and
+        disposable emails, and scores each lead 0&ndash;100. Free, open source,
+        and completely private: this page makes <strong>zero network requests</strong>
+        with your data &mdash; everything runs in your browser tab.
+      </p>
+    </section>
+
+    <div id="error-box" class="error-box" role="alert" hidden></div>
+
+    <section class="input-panel">
+      <div id="drop-zone" class="drop-zone" role="button" tabindex="0"
+           aria-label="Drop a CSV file here or press Enter to browse">
+        <div class="drop-title">Drop your CSV here</div>
+        <div class="drop-sub">or click to browse &mdash; expects columns like name, email, company, domain, phone (any order, any casing)</div>
+      </div>
+      <input type="file" id="file-input" accept=".csv,.txt,text/csv" hidden />
+      <div class="input-actions">
+        <button type="button" id="load-sample" class="btn btn-secondary">Load sample data</button>
+        <span id="status" class="status" aria-live="polite">Loading&hellip;</span>
+      </div>
+    </section>
+
+    <section id="results" hidden>
+      <h2>Processing summary</h2>
+      <div id="summary-grid" class="summary-grid"></div>
+      <div id="bucket-chips" class="bucket-chips"></div>
+
+      <div class="download-row">
+        <button type="button" id="download-cleaned-csv" class="btn btn-primary">Download cleaned CSV</button>
+        <button type="button" id="download-cleaned-json" class="btn btn-primary">Download cleaned JSON</button>
+        <button type="button" id="download-flagged-csv" class="btn btn-secondary">Download flagged rows CSV</button>
+      </div>
+
+      <h2>Preview</h2>
+      <p id="table-note" class="table-note"></p>
+      <div class="table-scroll">
+        <table id="preview-table" class="preview-table"></table>
+      </div>
+    </section>
+
+    <section class="scoring">
+      <h2>How scoring works</h2>
+      <p>Simple, transparent rules &mdash; the exact weights live in <code>js/qualify.js</code>:</p>
+      <div class="table-scroll">
+        <table class="weights-table">
+          <thead>
+            <tr><th>Signal</th><th>Points</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Corporate (non-free) email domain</td><td>+40</td></tr>
+            <tr><td>Valid email syntax</td><td>+20</td></tr>
+            <tr><td>Has a name</td><td>+15</td></tr>
+            <tr><td>Has a company</td><td>+15</td></tr>
+            <tr><td>Has a phone number</td><td>+10</td></tr>
+            <tr><td>Disposable email domain</td><td>score 0 &mdash; Disqualified</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Buckets: <strong>Hot</strong> &ge; 70 &middot; <strong>Warm</strong> 40&ndash;69 &middot; <strong>Cold</strong> &lt; 40 &middot; <strong>Disqualified</strong> = disposable email.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      Free and open source (MIT). No uploads, no tracking, no accounts &mdash; your data stays on this page.
+    </div>
+  </footer>
+
+  <script>
+    // Fail-safe boot check: if the ES modules did not load (e.g. index.html was
+    // opened straight from disk, where browsers block module imports), say so
+    // instead of showing a dead page.
+    setTimeout(function () {
+      if (!document.body.dataset.appReady) {
+        var box = document.getElementById('error-box');
+        box.hidden = false;
+        box.textContent = 'The app scripts could not load. If you opened index.html directly from disk, ' +
+          'browsers block ES modules on file:// — serve the folder instead (e.g. "npx serve" or ' +
+          '"python -m http.server") and open the local URL. See the README quickstart.';
+      }
+    }, 1500);
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+/* Lead CSV Cleaner — plain CSS, no framework. Navy accent on a light page. */
+
+:root {
+  --navy: #1a3357;
+  --navy-dark: #12243d;
+  --navy-soft: #e8edf4;
+  --bg: #f7f9fb;
+  --surface: #ffffff;
+  --text: #1c2733;
+  --muted: #5b6b7c;
+  --border: #d8dfe7;
+  --hot: #1f7a3d;
+  --warm: #b07000;
+  --cold: #5b6b7c;
+  --disq: #b3261e;
+  --error-bg: #fdecea;
+  --error-border: #f2b8b5;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Header */
+.site-header {
+  background: var(--navy);
+  color: #fff;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+.brand {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.privacy-badge {
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+}
+
+/* Hero */
+.hero { padding: 2.25rem 0 0.5rem; }
+.hero h1 {
+  font-size: 1.7rem;
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+  color: var(--navy);
+}
+.hero p { margin: 0; max-width: 46rem; color: var(--muted); }
+
+h2 {
+  color: var(--navy);
+  font-size: 1.2rem;
+  margin: 2rem 0 0.75rem;
+}
+
+/* Error box */
+.error-box {
+  margin-top: 1.25rem;
+  padding: 0.8rem 1rem;
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-left: 4px solid var(--disq);
+  border-radius: 6px;
+  color: #5c1a16;
+}
+
+/* Input panel */
+.input-panel { margin-top: 1.5rem; }
+.drop-zone {
+  background: var(--surface);
+  border: 2px dashed var(--navy);
+  border-radius: 10px;
+  padding: 2.25rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.drop-zone:hover, .drop-zone:focus-visible, .drop-zone.drag-over {
+  background: var(--navy-soft);
+  outline: none;
+}
+.drop-title { font-size: 1.15rem; font-weight: 700; color: var(--navy); }
+.drop-sub { margin-top: 0.35rem; font-size: 0.88rem; color: var(--muted); }
+
+.input-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.9rem;
+}
+.status { font-size: 0.9rem; color: var(--muted); }
+
+/* Buttons */
+.btn {
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.92rem;
+  border-radius: 6px;
+  padding: 0.55rem 1.1rem;
+  cursor: pointer;
+  border: 1px solid var(--navy);
+  transition: background 0.15s ease;
+}
+.btn-primary { background: var(--navy); color: #fff; }
+.btn-primary:hover { background: var(--navy-dark); }
+.btn-secondary { background: var(--surface); color: var(--navy); }
+.btn-secondary:hover { background: var(--navy-soft); }
+
+/* Summary cards */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+}
+.card-value { font-size: 1.55rem; font-weight: 700; color: var(--navy); }
+.card-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.15rem; }
+
+/* Bucket chips */
+.bucket-chips { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.9rem; }
+.chip {
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.chip-hot { color: var(--hot); border-color: var(--hot); }
+.chip-warm { color: var(--warm); border-color: var(--warm); }
+.chip-cold { color: var(--cold); border-color: var(--cold); }
+.chip-disqualified { color: var(--disq); border-color: var(--disq); }
+
+/* Downloads */
+.download-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.4rem; }
+
+/* Table */
+.table-note { font-size: 0.85rem; color: var(--muted); margin: 0 0 0.5rem; }
+.table-scroll {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.preview-table, .weights-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.87rem;
+}
+.preview-table th, .weights-table th {
+  text-align: left;
+  background: var(--navy-soft);
+  color: var(--navy);
+  padding: 0.55rem 0.75rem;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+.preview-table th { cursor: pointer; user-select: none; }
+.preview-table th:hover { background: #dbe4ef; }
+.preview-table td, .weights-table td {
+  padding: 0.45rem 0.75rem;
+  border-top: 1px solid var(--border);
+  white-space: nowrap;
+}
+.row-hot td:first-child { color: var(--hot); font-weight: 700; }
+.row-warm td:first-child { color: var(--warm); font-weight: 700; }
+.row-cold td:first-child { color: var(--cold); font-weight: 700; }
+.row-disqualified td:first-child { color: var(--disq); font-weight: 700; }
+
+/* Scoring section */
+.scoring { margin-bottom: 2.5rem; }
+.scoring code {
+  background: var(--navy-soft);
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+  font-size: 0.85em;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+  padding: 1.1rem 0;
+  margin-top: 1rem;
+}

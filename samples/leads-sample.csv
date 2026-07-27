@@ -1,0 +1,26 @@
+Name,Email,Company,Domain,Phone,Notes
+  alice tan ,ALICE.TAN@Acme-Widgets.example,Acme Widgets Sdn Bhd,,+60 12-345 6001,dirty whitespace + casing on purpose
+Bob Lee,bob.lee@globex-trading.example,Globex Trading Bhd,globex-trading.example,+60 12-345 6002,clean corporate row
+carol ng,Carol.Ng@initech-solutions.example,Initech Solutions Pte Ltd,,,no phone on purpose
+David Chua,david.chua88@gmail.com,,,+60 12-345 6004,free provider + no company
+Emily Wong,emily.wong@mailinator.com,Wong Trading (Synthetic) Ltd,,+60 12-345 6005,disposable domain on purpose
+Alice Tan,alice.tan@acme-widgets.example,Acme Widgets Sdn Bhd,,+60 12-345 6001,exact duplicate of row 2
+ALICE   TAN,a.tan@acme-widgets.example,Acme Widgets Sdn Bhd,,,fuzzy duplicate of row 2 (same name + domain)
+Frank Lim,frank..lim@@not-an-email,Limtech Synthetic Industries,,+60 12-345 6007,broken email on purpose
+,,,,,
+Grace Ho,grace.ho@stark-fabrication.example,Stark Fabrication Sdn Bhd,stark-fabrication.example,+60 12-345 6009,clean corporate row
+Henry Koh,henry.koh@yahoo.com,Koh Logistics (Synthetic),,+60 12-345 6010,free provider with company
+Irene Ooi,irene@wayne-machinery.example,Wayne Machinery Bhd,,,no phone
+"Teo, Jack Jr.",jack.teo@umbrella-foods.example,"Umbrella Foods, Synthetic Bhd",,+60 12-345 6012,quoted commas on purpose
+Kavitha Raj,kavitha.raj@hooli-synthetic.example,Hooli Synthetic Sdn Bhd,,+60 12-345 6013,clean corporate row
+liam o'brien,LIAM.OBRIEN@vandelay-imports.example,Vandelay Imports (Synthetic),,+60 12-345 6014,lowercase name on purpose
+Mei Lin,mei.lin@10minutemail.com,,,,disposable domain on purpose
+Nurul Aina,nurul.aina@outlook.com,,,+60 12-345 6017,free provider + no company
+Oscar Png,oscar.png@soylent-synthetic.example,Soylent Synthetic Industries,,+60 12-345 6018,clean corporate row
+,priya@massive-dynamic.example,Massive Dynamic Synthetic Bhd,,+60 12-345 6019,missing name on purpose
+Quentin Sim,quentin,Simtech Synthetic,,+60 12-345 6020,not an email at all
+Rachel Yap,rachel.yap@acme-widgets.example,Acme Widgets Sdn Bhd,,+60 12-345 6021,same domain as Alice but different person
+Sam Voon,sam.voon@pied-piper-synthetic.example,Pied Piper Synthetic Sdn Bhd,,+60 12-345 6022,malformed row,extra,field,oops
+tan ah kow,TAN.AHKOW@HOTMAIL.COM,,,,free provider + minimal data
+Uma Devi,uma.devi@dunder-mifflin-synthetic.example,Dunder Mifflin Synthetic Sdn Bhd,dunder-mifflin-synthetic.example,+60 12-345 6024,clean corporate row
+Victor Goh,victor.goh@cyberdyne-synthetic.example,,,+60 12-345 6025,no company
