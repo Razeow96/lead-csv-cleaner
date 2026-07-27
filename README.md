@@ -9,6 +9,7 @@ Drop in a messy export from any lead source and get back:
 - invalid, disposable and free-provider emails flagged
 - a 0–100 quality score and a Hot / Warm / Cold / Disqualified bucket per lead
 - downloads: cleaned CSV, cleaned JSON, and a "flagged rows" CSV with the reason for every flag
+- CSV exports are safe to open in Excel/Sheets: any field starting with `=`, `+`, `-`, `@`, tab or CR is prefixed with `'` so it can never execute as a formula (CSV-injection protection)
 
 **Live demo:** hosted on Cloudflare Pages — link pending.
 

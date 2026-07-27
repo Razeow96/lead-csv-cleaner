@@ -1,8 +1,12 @@
 // export.js — build the output rows, summary, CSV and JSON strings.
 // Pure functions only (string building). File downloads live in ui.js.
 
+// RFC 4180 quoting, plus CSV-injection neutralization: a field starting with
+// = + - @ tab or CR is prefixed with a single quote so Excel/Sheets treat it
+// as text instead of executing it as a formula when the export is opened.
 export function escapeCsvField(value) {
-  const s = String(value ?? '');
+  let s = String(value ?? '');
+  if (/^[=+\-@\t\r]/.test(s)) s = `'${s}`;
   return /[",\n\r]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
 }
 
