@@ -8,7 +8,7 @@ setTimeout(function () {
     var box = document.getElementById('error-box');
     box.hidden = false;
     box.textContent = 'The app scripts could not load. If you opened index.html directly from disk, ' +
-      'browsers block ES modules on file:// — serve the folder instead (e.g. "npx serve" or ' +
+      'that is the cause: browsers block ES modules on file://. Serve the folder instead (e.g. "npx serve" or ' +
       '"python -m http.server") and open the local URL. See the README quickstart.';
   }
 }, 1500);

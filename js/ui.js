@@ -23,7 +23,7 @@ export function clearError() {
 
 export function renderSummary(summary, fileName) {
   $('results').hidden = false;
-  setStatus(`Processed ${fileName} — ${summary.rowsIn} rows in, ${summary.cleaned} cleaned, ${summary.flagged} flagged.`);
+  setStatus(`Done with ${fileName}: ${summary.rowsIn} rows in, ${summary.cleaned} cleaned, ${summary.flagged} flagged.`);
 
   const cards = [
     ['Rows in', summary.rowsIn],
@@ -124,7 +124,7 @@ export function renderTable(results) {
   table.append(thead, tbody);
 
   $('table-note').textContent = currentResults.length > 100
-    ? `Showing first 100 of ${currentResults.length} rows. Downloads always contain every row.`
+    ? `Showing the first 100 of ${currentResults.length} rows. The downloads contain every row.`
     : `Showing all ${currentResults.length} rows.`;
 }
 

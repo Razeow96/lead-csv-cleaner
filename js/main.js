@@ -40,7 +40,7 @@ function process(text, fileName) {
     ui.renderTable(run.results);
   } catch (err) {
     ui.showError(`Could not process "${fileName}": ${err.message}`);
-    ui.setStatus('Ready — drop a CSV to begin.');
+    ui.setStatus('Ready. Drop a CSV to begin.');
   }
 }
 
@@ -85,7 +85,7 @@ function wireEvents() {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       process(await res.text(), 'leads-sample.csv');
     } catch (err) {
-      ui.showError(`Could not load the sample (${err.message}). If you opened index.html straight from disk, serve the folder instead — see the README quickstart.`);
+      ui.showError(`Could not load the sample (${err.message}). If you opened index.html straight from disk, serve the folder with a local server instead. The README quickstart has the commands.`);
     }
   });
 
@@ -107,5 +107,5 @@ function wireEvents() {
 }
 
 wireEvents();
-ui.setStatus('Ready — drop a CSV to begin.');
+ui.setStatus('Ready. Drop a CSV to begin.');
 document.body.dataset.appReady = 'true'; // headless smoke checks look for this

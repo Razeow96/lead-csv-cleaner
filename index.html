@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lead CSV Cleaner — clean, dedupe and score your leads in the browser</title>
-  <meta name="description" content="Free lead CSV cleaner: dedupe, validate and score your lead list. 100% client-side — your data never leaves your browser." />
+  <title>Lead CSV Cleaner: clean and score your lead list in the browser</title>
+  <meta name="description" content="Free tool that tidies up messy lead CSVs. Removes duplicates, flags bad emails and scores every lead. 100% client-side, so your data never leaves your browser." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -12,19 +12,20 @@
     <div class="wrap header-inner">
       <div class="brand">Lead CSV Cleaner</div>
       <div class="privacy-badge" title="All processing happens in this tab. Nothing is uploaded.">
-        100% client-side &mdash; your CSV never leaves your browser
+        100% client-side. Your CSV never leaves your browser.
       </div>
     </div>
   </header>
 
   <main class="wrap">
     <section class="hero">
-      <h1>Upload a lead CSV. Get back a cleaned, deduped, scored list.</h1>
+      <h1>Clean up a messy lead CSV before it goes into your CRM.</h1>
       <p>
-        Trims and normalizes every field, removes duplicates, flags invalid and
-        disposable emails, and scores each lead 0&ndash;100. Free, open source,
-        and completely private: this page makes <strong>zero network requests</strong>
-        with your data &mdash; everything runs in your browser tab.
+        Drop in an export from any lead source. The tool trims and normalises
+        every field, removes duplicates, flags invalid and disposable emails,
+        and gives each lead a score out of 100. It is free, open source and
+        private by design: this page makes <strong>zero network requests</strong>
+        with your data. Everything happens inside your browser tab.
       </p>
     </section>
 
@@ -34,7 +35,7 @@
       <div id="drop-zone" class="drop-zone" role="button" tabindex="0"
            aria-label="Drop a CSV file here or press Enter to browse">
         <div class="drop-title">Drop your CSV here</div>
-        <div class="drop-sub">or click to browse &mdash; expects columns like name, email, company, domain, phone (any order, any casing)</div>
+        <div class="drop-sub">or click to browse. Columns like name, email, company, domain and phone are picked up automatically, in any order and any casing.</div>
       </div>
       <input type="file" id="file-input" accept=".csv,.txt,text/csv" hidden />
       <div class="input-actions">
@@ -63,7 +64,7 @@
 
     <section class="scoring">
       <h2>How scoring works</h2>
-      <p>Simple, transparent rules &mdash; the exact weights live in <code>js/qualify.js</code>:</p>
+      <p>No black box here. The rules are plain and the exact weights sit in <code>js/qualify.js</code>:</p>
       <div class="table-scroll">
         <table class="weights-table">
           <thead>
@@ -75,17 +76,17 @@
             <tr><td>Has a name</td><td>+15</td></tr>
             <tr><td>Has a company</td><td>+15</td></tr>
             <tr><td>Has a phone number</td><td>+10</td></tr>
-            <tr><td>Disposable email domain</td><td>score 0 &mdash; Disqualified</td></tr>
+            <tr><td>Disposable email domain</td><td>score set to 0 (Disqualified)</td></tr>
           </tbody>
         </table>
       </div>
-      <p>Buckets: <strong>Hot</strong> &ge; 70 &middot; <strong>Warm</strong> 40&ndash;69 &middot; <strong>Cold</strong> &lt; 40 &middot; <strong>Disqualified</strong> = disposable email.</p>
+      <p>Buckets: <strong>Hot</strong> is 70 and above, <strong>Warm</strong> is 40 to 69, <strong>Cold</strong> is below 40. A disposable email lands in <strong>Disqualified</strong> regardless.</p>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      Free and open source (MIT). No uploads, no tracking, no accounts &mdash; your data stays on this page.
+      Open source under the MIT licence. Nothing is uploaded and nothing is tracked. Your data stays on this page.
     </div>
   </footer>
 
