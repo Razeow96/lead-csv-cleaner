@@ -101,9 +101,11 @@ lead-csv-cleaner/
 
 That is the sort of thing I build for clients: cleaning, enrichment and scoring pipelines that run on their own instead of in a browser tab. Hire me:
 
-- Fiverr: *link pending*
-- Upwork: *link pending*
-- Contra: *link pending*
+- Fiverr: https://www.fiverr.com/razeow
+- Upwork: https://www.upwork.com/freelancers/~01728619cfafa05cc0
+- Contra: https://contra.com/razeowstudio
+
+**What it costs:** wired into your CRM as a pipeline that runs on its own — from $60.
 
 ## License
 
